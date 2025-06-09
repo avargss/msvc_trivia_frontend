@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Multiple } from '../../service/multiple.service';
 import { NgFor, NgIf } from '@angular/common';
+import { Table } from './table/table';
 
 @Component({
   selector: 'app-multiple-options',
-  imports: [NgIf, NgFor],
+  imports: [NgIf, Table],
   templateUrl: './multiple-options.html',
   styleUrl: './multiple-options.scss'
 })
@@ -13,11 +14,9 @@ export class MultipleOptions {
 
   constructor(private multipleService: Multiple) { }
 
-  // Método para cargar las preguntas
   loadQuestions() {
     this.multipleService.getMultipleQuestions().subscribe(response => {
       this.questions = response.results;
-      console.log(this.questions);
     });
   }
 }
