@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { OneOptionService } from '../../service/one-option.service';
 import { NgFor, NgIf } from '@angular/common';
+import { Table } from './table/table';
+
 
 @Component({
   selector: 'app-one-option',
-  imports: [NgIf, NgFor],
+  imports: [NgIf, Table],
   templateUrl: './one-option.html',
   styleUrl: './one-option.scss'
 })
