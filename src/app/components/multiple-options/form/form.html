@@ -1,0 +1,23 @@
+<form *ngIf="question" (ngSubmit)="checkAnswer()" #questionForm="ngForm" class="mt-3">
+    <div class="mb-3">
+        <label class="form-label">Pregunta:</label>
+        <input class="form-control" type="text" [value]="question.question" readonly>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Selecciona una respuesta:</label>
+        <select class="form-select" [(ngModel)]="selectedAnswer" name="answer" required>
+            <option *ngFor="let answer of allAnswers" [value]="answer">{{ answer }}</option>
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Enviar</button>
+    <button class="btn btn-secondary" type="button" (click)="nextQuestion()">Siguiente pregunta</button>
+</form>
+
+<div *ngIf="result" class="mt-3">
+    <div *ngIf="isCorrect" class="alert alert-success">
+        ¡Respuesta correcta!
+    </div>
+    <div *ngIf="!isCorrect" class="alert alert-danger">
+        Respuesta incorrecta. La respuesta correcta era: <strong>{{ question.correct_answer }}</strong>
+    </div>
+</div>

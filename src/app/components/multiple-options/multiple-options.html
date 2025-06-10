@@ -1,3 +1,7 @@
 <button class="btn btn-primary" (click)="loadQuestions()">Cargar preguntas</button>
+<button class="btn btn-success" (click)="loadForm()">Cargar Formulario</button>
 
-<app-table *ngIf="questions.length > 0" [questions]="questions"></app-table>
+<app-table *ngIf="questions.length > 0 && !showForm" [questions]="questions"></app-table>
+<app-form *ngIf="showForm" [question]="selectedQuestion" [questions]="questions"
+    (questionChange)="onQuestionChange($event)">
+</app-form>

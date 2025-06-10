@@ -13,5 +13,4 @@ export class Multiple {
   getMultipleQuestions(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
-
 }
