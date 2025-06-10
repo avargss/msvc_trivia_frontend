@@ -1,0 +1,22 @@
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Pregunta</th>
+            <th>Respuestas</th>
+            <th>Respuesta Correcta</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let q of questions">
+            <td [innerHTML]="q.question"></td>
+            <td>
+                <ul>
+                    <li *ngFor="let answer of (q.incorrect_answers.concat([q.correct_answer]))">
+                        {{ answer }}
+                    </li>
+                </ul>
+            </td>
+            <td>{{ q.correct_answer }}</td>
+        </tr>
+    </tbody>
+</table>
